@@ -1,0 +1,22 @@
+{
+  "name": "pokemon-bot",
+  "version": "1.0.0",
+  "description": "Node Twitter bot built with the Pokemon API",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "javascript",
+    "node",
+    "twitter",
+    "pokemon"
+  ],
+  "author": "Chris Sanchez, @sanchito59",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "twitter": "^1.7.1"
+  }
+}
