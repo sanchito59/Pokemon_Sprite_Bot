@@ -60,7 +60,7 @@ const encounterAndTweetPokemon = async () => {
       const name = pokemon.name;
       const type = pokemon.types[0].type.name;
       const photoURL = pokemon.sprites.front_default;
-      caption = `(no. ${number}) - ${name} - ${type}`;
+      caption = `(no. ${number}) - ${name} - ${type} #Pokemon #${name}`;
 
       return new Promise((resolve, reject) => {
         downloadImage(photoURL, 'image.png', () => resolve())
