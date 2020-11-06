@@ -60,7 +60,10 @@ const encounterAndTweetPokemon = async () => {
       const name = pokemon.name;
       const type = pokemon.types[0].type.name;
       const photoURL = pokemon.sprites.front_default;
-      caption = `(no. ${number}) - ${name.charAt(0).toUpperCase() + name.slice(1)} - ${type} #Pokemon #${name.replaceAll('-', '')}`;
+      caption = `
+      (no. ${number}) - ${name.charAt(0).toUpperCase() + name.slice(1)} - ${type}
+      #Pokemon #${name.replace(/-/g, "")}
+      `;
 
       return new Promise((resolve, reject) => {
         downloadImage(photoURL, 'image.png', () => resolve())
