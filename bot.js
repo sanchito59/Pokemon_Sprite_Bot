@@ -52,6 +52,8 @@ const downloadImage = (uri, filename, callback) => {
 
 const encounterAndTweetPokemon = async () => {
   let caption;
+  const shinyEncounterChance = Math.floor(Math.random() * 100);
+
   getPokemonCount(pokemonCountURL).then((response) => {
     return response.count;
   }).then((pokedexCount) => {
@@ -59,9 +61,15 @@ const encounterAndTweetPokemon = async () => {
       const number = pokemon.id;
       const name = pokemon.name;
       const type = pokemon.types[0].type.name;
-      const photoURL = pokemon.sprites.front_default;
+
+      const shinyImgAvailable = Object.keys(pokemon.sprites).filter(file => file == 'front_shiny').length > 0;
+      const shinyEncountered = (shinyEncounterChance < 2 && shinyImgAvailable);
+      const displayName = shinyEncountered ? `Shiny ${name.charAt(0).toUpperCase()}${name.slice(1)}` : `${name.charAt(0).toUpperCase()}${name.slice(1)}`;
+
+      const photoURL = shinyEncountered ? pokemon.sprites.front_shiny : pokemon.sprites.front_default;
+
       caption = `
-      (no. ${number}) - ${name.charAt(0).toUpperCase() + name.slice(1)} - ${type}
+      (no. ${number}) - ${displayName} - ${type}
       #Pokemon #${name.replace(/-/g, "")}
       `;
 
