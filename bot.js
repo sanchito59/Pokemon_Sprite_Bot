@@ -63,7 +63,7 @@ const encounterAndTweetPokemon = async () => {
       const type = pokemon.types[0].type.name;
 
       const shinyImgAvailable = Object.keys(pokemon.sprites).filter(file => file == 'front_shiny').length > 0;
-      const shinyEncountered = (shinyEncounterChance < 2 && shinyImgAvailable);
+      const shinyEncountered = (shinyEncounterChance < 8 && shinyImgAvailable);
       const displayName = shinyEncountered ? `Shiny ${name.charAt(0).toUpperCase()}${name.slice(1)}` : `${name.charAt(0).toUpperCase()}${name.slice(1)}`;
 
       const photoURL = shinyEncountered ? pokemon.sprites.front_shiny : pokemon.sprites.front_default;
